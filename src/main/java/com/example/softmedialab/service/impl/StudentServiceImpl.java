@@ -1,6 +1,5 @@
 package com.example.softmedialab.service.impl;
 
-import com.example.softmedialab.entity.Grade;
 import com.example.softmedialab.entity.Student;
 import com.example.softmedialab.exceptions.StudentNotExistException;
 import com.example.softmedialab.repository.StudentRepository;

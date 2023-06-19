@@ -1,15 +1,12 @@
 package com.example.softmedialab.entity;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
-import reactor.util.annotation.Nullable;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,13 +16,13 @@ import reactor.util.annotation.Nullable;
 public class Student {
     @Id
     private Long id;
-    @NotNull
+    @NotBlank
     private String name;
-    @NotNull
+    @NotBlank
     private String lastName;
-    @NotNull
+    @NotBlank
     private String birthDate;
-    @Nullable
+    @NotBlank
     private Grade grade;
 
 }
