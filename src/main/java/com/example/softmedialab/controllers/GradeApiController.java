@@ -2,9 +2,9 @@ package com.example.softmedialab.controllers;
 
 import com.example.softmedialab.entity.Grade;
 import com.example.softmedialab.service.abstracts.GradeService;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +15,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/grade")
+@Tag(name = "Оценочная ведомость")
 public class GradeApiController {
     private final GradeService gradeService;
 
@@ -22,10 +23,10 @@ public class GradeApiController {
         this.gradeService = gradeService;
     }
     @PutMapping("/{id}")
-    @ApiOperation(value = "Изменение студента по id")
+    @ApiResponse(description = "Изменение параметров оценки по id")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Успешно изменен"),
-            @ApiResponse(code = 400, message = "Произошла ошибка")
+            @ApiResponse(responseCode = "200", description = "Успешно изменена"),
+            @ApiResponse(responseCode = "400", description = "Произошла ошибка")
     })
     public Mono<ResponseEntity<Grade>> updateStudentById(@PathVariable Long id,
                                                            @RequestBody Grade grade) {
